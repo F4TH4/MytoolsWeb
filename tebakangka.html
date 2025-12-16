@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tebak Angka</title>
+<style>
+body{font-family:Arial;text-align:center;padding:20px;background:#f0f0f0;}
+h1{margin-bottom:20px;}
+input{padding:8px;width:100px;margin-right:10px;border-radius:5px;border:1px solid #ccc;}
+button{padding:8px 15px;border:none;border-radius:10px;background:#4D96FF;color:white;cursor:pointer;}
+button:hover{background:#66a6ff;}
+#status{margin-top:15px;font-size:18px;font-weight:bold;}
+</style>
+</head>
+<body>
+<h1>Tebak Angka</h1>
+<p>Angka 1-100</p>
+<input type="number" id="guessInput" min="1" max="100">
+<button id="checkBtn">Cek</button>
+<button id="resetBtn">Reset</button>
+<p id="status"></p>
+
+<script>
+let answer=Math.floor(Math.random()*100)+1;
+const input=document.getElementById('guessInput');
+const status=document.getElementById('status');
+document.getElementById('checkBtn').addEventListener('click',()=>{const val=parseInt(input.value);if(!val){status.textContent='Masukkan angka valid';return;}
+if(val>answer){status.textContent='Terlalu Besar';}else if(val<answer){status.textContent='Terlalu Kecil';}else{status.textContent='Benar! Selamat!';}});
+document.getElementById('resetBtn').addEventListener('click',()=>{answer=Math.floor(Math.random()*100)+1;input.value='';status.textContent='';});
+</script>
+</body>
+</html>
