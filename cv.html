@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive CV</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      padding: 50px 20px;
+    }
+
+    .cv-container {
+      max-width: 800px;
+      width: 100%;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+
+    .header {
+      background: #4D96FF;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    .header p {
+      margin: 5px 0 0;
+      font-size: 18px;
+    }
+
+    .section {
+      padding: 20px 40px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .section:hover {
+      background: #f0f8ff;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: 22px;
+      color: #333;
+    }
+
+    .section-content {
+      display: none;
+      margin-top: 10px;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .active .section-content {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @media(max-width:600px){
+      .section {
+        padding: 15px 20px;
+      }
+
+      .header h1 {
+        font-size: 26px;
+      }
+
+      .header p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cv-container">
+    <div class="header">
+      <h1>Fathahazz</h1>
+      <p>Frontend Developer | UI/UX Enthusiast</p>
+    </div>
+
+    <div class="section" onclick="toggleSection(this)">
+      <h2>About Me</h2>
+      <div class="section-content">
+        <p>I'm a passionate frontend developer who loves creating interactive and visually appealing websites. I enjoy turning ideas into functional digital experiences.</p>
+      </div>
+    </div>
+
+    <div class="section" onclick="toggleSection(this)">
+      <h2>Experience</h2>
+      <div class="section-content">
+        <ul>
+          <li>Frontend Developer at XYZ Corp (2023-Present)</li>
+          <li>UI/UX Intern at ABC Studio (2022-2023)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section" onclick="toggleSection(this)">
+      <h2>Education</h2>
+      <div class="section-content">
+        <p>Bachelor of Computer Science, AMIK (2025-Present)</p>
+      </div>
+    </div>
+
+    <div class="section" onclick="toggleSection(this)">
+      <h2>Skills</h2>
+      <div class="section-content">
+        <ul>
+          <li>HTML, CSS, JavaScript</li>
+          <li>React, Tailwind CSS</li>
+          <li>UI/UX Design, Figma</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section" onclick="toggleSection(this)">
+      <h2>Contact</h2>
+      <div class="section-content">
+        <p>Email: fathahazz31@gmail.com</p>
+        <p>LinkedIn: linkedin.com/in/fathahazz</p>
+        <p>GitHub: github.com/f4th4</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleSection(section) {
+      // close other sections
+      const allSections = document.querySelectorAll('.section');
+      allSections.forEach(s => {
+        if(s !== section) s.classList.remove('active');
+      });
+
+      // toggle clicked section
+      section.classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>
